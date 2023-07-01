@@ -1,7 +1,7 @@
 const duration = 8; // seconds
 
-const indexPath = "images_test/index.txt";
-const imagesPath = "images_test/";
+const indexPath = "images/index.txt";
+const imagesPath = "images/";
 
 Array.prototype.randomize = function () {
   var i = this.length,
@@ -18,7 +18,6 @@ Array.prototype.randomize = function () {
 };
 
 const reloadImages = async function () {
-  console.log("reload");
   const response = await fetch(indexPath);
   const list = await response.text();
   const images = list.split("\n").filter((line) => line.trim().length > 0);
@@ -52,5 +51,3 @@ const showImage = function (image) {
 };
 
 document.addEventListener("DOMContentLoaded", (_) => reloadImages());
-
-console.log("infini");
